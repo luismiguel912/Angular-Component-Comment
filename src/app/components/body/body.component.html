@@ -1,0 +1,97 @@
+<hr>
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <p class="title">
+        put a text caption referring to your web page
+      </p>
+      <p class="subtitle">
+
+      </p>
+    </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+        </span>
+      </p>
+      <p class="card-footer-item">
+        <span>
+          Share on <a href="#">Facebook</a>
+        </span>
+      </p>
+    </footer>
+  </div>
+<hr>
+  <article class="media" *ngFor="let comment of comments; let num = index">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>{{comment.name}}</strong> <small>{{comment.alias}}</small> - <small>{{num + 20}}- min</small>
+          <br>
+          {{comment.comment}}
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-reply"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="media-right">
+      <button class="delete"
+      (click)="deleteComment(num)"></button>
+    </div>
+  </article>
+
+  <br>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="field">
+        <div class="control">
+          <input class="input" type="text" placeholder="Ingrese su nombre"
+            [(ngModel)]="name" (ngModelChange)="name = $event">
+        </div>
+      </div>
+      <div class="field">
+        <p class="control">
+          <textarea class="textarea" placeholder="Add a comment..."
+          [(ngModel)]="comment" (ngModelChange)="comment = $event"></textarea>
+        </p>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <a class="button is-info"
+            (click)="addComent()">Submit</a>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <label class="checkbox">
+              <input type="checkbox"> Press enter to submit
+            </label>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>
