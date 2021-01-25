@@ -29,20 +29,19 @@ export class BodyComponent implements OnInit {
   }
 
   addComent(){
-    console.log(this.name);
-    console.log(this.comment);
 
     let addCommentsArray = {
       name:this.name,
       alias: `@ ${this.name}`,
       comment:this.comment
     }
-
     this.comments.push(addCommentsArray);
+   //clear inputs
+    this.name = "";
+    this.comment = "";
   }
 
   deleteComment(indice: any){{
-    console.log(indice);
     this.comments.splice(indice,1);
   }}
 }
